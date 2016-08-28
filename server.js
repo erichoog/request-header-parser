@@ -4,6 +4,11 @@ var app = express();
 app.locals.pretty = true;
 app.set('port', (process.env.PORT || 8080));
 
+
+app.get('/', function (req, res) {
+  res.end("goto /api/whoami");
+});
+
 app.get('/api/whoami', function (req, res) {
   
   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
